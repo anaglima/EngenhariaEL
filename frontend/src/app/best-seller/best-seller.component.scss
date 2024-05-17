@@ -4030,7 +4030,7 @@
     display: flex;
     flex-wrap: inherit;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
   .navbar-brand {
     padding-top: 0.3125rem;
@@ -4670,7 +4670,7 @@
   }
   .accordion-button:not(.collapsed) {
     color: #e6b400;
-    background-color: #fffae6;
+    background-color: black;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
   }
   .accordion-button:not(.collapsed)::after {
@@ -11512,7 +11512,7 @@
   .timeline {
     position: relative;
     padding: 0;
-    list-style: none;
+
   }
   .timeline:before {
     position: absolute;
@@ -11521,7 +11521,7 @@
     left: 40px;
     width: 2px;
     margin-left: -1.5px;
-    content: "";
+
     background-color: #e9ecef;
   }
   .timeline > li {
@@ -11563,10 +11563,6 @@
     height: 80px;
     margin-left: 0;
     text-align: center;
-    color: white;
-    border: 7px solid #e9ecef;
-    border-radius: 100%;
-
   }
   .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
     font-size: 10px;

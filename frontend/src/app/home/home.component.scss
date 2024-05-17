@@ -57,18 +57,13 @@ body {
   padding: 20px;
 }
 
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
+
 
 /* Footer */
 .footer {
   padding: 6px;
   text-align: center;
-  color: white;
+  color: black;
   background: #888787;
 }
 
@@ -125,6 +120,7 @@ ul li a {
 
 a.logo {
   margin-right: auto;
+
 }
 
 ul {
@@ -136,15 +132,17 @@ ul {
 
 a {
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   position: relative;
   font-size: 1.25em;
+  margin-top: -25px;
 }
 
-a::after {
+
+a.menu::after {
   content:"";
   top: 80%;
-  border-bottom: 2px solid #FFFFFF;
+  border-bottom: 2px solid black;
   transition: all 0.35s;
   position: absolute;
 }
@@ -182,7 +180,7 @@ a:hover::after {
   ul {
     width: 100%;
     margin-bottom: 1em;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   ul li a {
