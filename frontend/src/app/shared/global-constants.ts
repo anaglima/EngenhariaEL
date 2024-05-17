@@ -2,7 +2,7 @@ export class GlobalConstants{
 
   public static genericError:string = "Aconteceu algo de errado, tente novamente mais tarde.";
 
-  public static unauthroized: string = "Seu acesso não oi permitido."
+  public static unauthroized: string = "Seu acesso não foi permitido."
 
   public static nameRegex:string = "[a-zA-Z0-9 ]*";
 
@@ -10,5 +10,5 @@ export class GlobalConstants{
 
   public static contactNumberRegex:string = "^[e0-9]{10,10}$";
 
-  public static error:string = "error";
+  public static error:string = "Erro";
 }

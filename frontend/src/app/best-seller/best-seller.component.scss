@@ -72,9 +72,21 @@
     line-height: var(--bs-body-line-height);
     color: var(--bs-body-color);
     text-align: var(--bs-body-text-align);
-    background-color: var(--bs-body-bg);
+    background-color: #DFDFDF;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-bottom:-50px ;
+  }
+
+  .footer {
+    padding: 9px;
+    text-align: center;
+    color: black;
+    background: #888787;
+  }
+
+  .hfooter{
+    font-size: 20px;
   }
 
   hr {
@@ -627,6 +639,12 @@
     padding-left: var(--bs-gutter-x, 0.75rem);
     margin-right: auto;
     margin-left: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container{
+    background-color: #DFDFDF;
   }
 
   @media (min-width: 576px) {
@@ -7650,6 +7668,7 @@
 
   .text-center {
     text-align: center !important;
+    background-color: #DFDFDF;
   }
 
   .text-decoration-none {
@@ -11278,11 +11297,14 @@
 
   .page-section {
     padding: 6rem 0;
+    margin-bottom: 150px;
+    background-color: #DFDFDF;
   }
   .page-section h2.section-heading, .page-section .section-heading.h2 {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
+    color:#000
   }
   .page-section h3.section-subheading, .page-section .section-subheading.h3 {
     font-size: 1rem;
@@ -11512,6 +11534,7 @@
   .timeline {
     position: relative;
     padding: 0;
+    background-color: #DFDFDF;
 
   }
   .timeline:before {
@@ -11521,13 +11544,15 @@
     left: 40px;
     width: 2px;
     margin-left: -1.5px;
-
-    background-color: #e9ecef;
+    background-color: #DFDFDF;
   }
   .timeline > li {
     position: relative;
     min-height: 50px;
     margin-bottom: 50px;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
   }
   .timeline > li:after, .timeline > li:before {
     display: table;
