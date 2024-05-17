@@ -13,7 +13,8 @@ create table user(
     UNIQUE (email)
 );
 
-insert into user(name,contactNumber,email,password,status,role) values('Admin', '16999999999', 'analima.dev@gmail.com', 'admin', 'true', 'admin');
+insert into user(name,contactNumber,email,password,status,role) values('Admin', '1699999999', 'analima.dev@gmail.com', 'admin', 'true', 'admin');
+insert into user(name,contactNumber,email,password,status,role) values('User', '1688888888', 'souzastefani25@gmail.com', 'user', 'true', 'user');
 
 create table category(
     id int not NULL AUTO_INCREMENT,

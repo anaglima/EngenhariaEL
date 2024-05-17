@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.ngxService.stop();
       this.dialogRef.close();
       localStorage.setItem('token', response.token);
-      this.router.navigate(['cafe/dashboard']);
+      this.router.navigate(['index/dashboard']);
     },(error)=>{
       this.ngxService.stop();
       if(error.error?.message){
