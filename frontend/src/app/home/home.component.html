@@ -1,15 +1,17 @@
-<div class="bg-image"></div>
 <app-best-seller></app-best-seller>
 
 <div class="wrapper sticky">
   <nav class="navbar-fixed-top">
     <a href="#" class="logo">
-      <mat-icon>storefront</mat-icon> Cafe Management System
+      <mat-icon>storefront</mat-icon> EL Engenharia
     </a>
     <ul>
+      <li><a (click)="loginAction()">Entrar</a></li>
+      <li><a (click)="signupAction()">Cadastre-se</a></li>
+      <li><a (click)="forgotPasswordAction()">Esqueceu sua senha?</a></li>
     </ul>
   </nav>
 </div>
 <div class="footer" id="signup">
-  <h2>All right reserved @BTech Days</h2>
+  <h2>Todos os direitos reservados!</h2>
 </div>
