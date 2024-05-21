@@ -19,8 +19,7 @@ import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION} from "ngx-
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
-import { EstoquecomponentComponent } from './estoque/estoquecomponent/estoquecomponent.component';
-import { EstoqueComponent } from './estoque/estoque/estoque.component';
+import { EstoqueComponent } from './estoque/estoque.component';
 import { ObrasComponent } from './obras/obras.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -46,7 +45,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SignupComponent,
     ForgotPasswordComponent,
     LoginComponent,
-    EstoquecomponentComponent,
     EstoqueComponent,
     ObrasComponent
    ],
