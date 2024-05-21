@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material-module';
 import { HomeComponent } from './home/home.component';
-import { BestSellerComponent } from './best-seller/best-seller.component';
+import { InicialComponent } from './inicial/inicial.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
@@ -19,6 +19,9 @@ import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION} from "ngx-
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
+import { EstoquecomponentComponent } from './estoque/estoquecomponent/estoquecomponent.component';
+import { EstoqueComponent } from './estoque/estoque/estoque.component';
+import { ObrasComponent } from './obras/obras.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text:"Carregando...",
@@ -36,13 +39,16 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    BestSellerComponent,
+    InicialComponent,
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
     ForgotPasswordComponent,
-    LoginComponent
+    LoginComponent,
+    EstoquecomponentComponent,
+    EstoqueComponent,
+    ObrasComponent
    ],
   imports: [
     BrowserModule,
