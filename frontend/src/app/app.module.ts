@@ -22,6 +22,7 @@ import { TokenInterceptorInterceptor } from './services/token-interceptor.interc
 import { EstoqueComponent } from './estoque/estoque.component';
 import { ObrasComponent } from './obras/obras.component';
 
+
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text:"Carregando...",
   textColor:"#FFFFFF",
@@ -46,7 +47,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ForgotPasswordComponent,
     LoginComponent,
     EstoqueComponent,
-    ObrasComponent
+    ObrasComponent,
+
    ],
   imports: [
     BrowserModule,

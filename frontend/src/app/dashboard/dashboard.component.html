@@ -1,8 +1,8 @@
 <div class="text-center">
-  <button mat-raised-button>
-    <a class="btEstoque"(click)="estoqueAction()">ESTOQUE<br><img src="../../assets/img/estoqueBt.png"></a>
+  <button mat-raised-button [routerLink]="['index/estoque']">
+    ESTOQUE<br><img src="../../assets/img/estoqueBt.png">
   </button>
-  <button mat-raised-button>
-    <a class="btObras"(click)="obrasAction()">OBRAS<br><img src="../../assets/img/obrasBt.png"></a>
+  <button mat-raised-button [routerLink]="['index/obras']">
+    OBRAS<br><img src="../../assets/img/obrasBt.png">
   </button>
 </div>
