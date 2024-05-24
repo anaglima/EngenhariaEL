@@ -9,13 +9,13 @@ router.post(
   auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
-    let category = req.body;
-    query = "insert into category (name) values(?)";
-    connection.query(query, [category.name], (err, results) => {
+    let construction = req.body;
+    query = "insert into construction(name) values(?)";
+    connection.query(query, [construction.name], (err, results) => {
       if (!err) {
         return res
           .status(200)
-          .json({ message: "Categoria adicionada com sucesso!" });
+          .json({ message: "Obra adicionada com sucesso!" });
       } else {
         return res.status(500).json(err);
       }
@@ -23,7 +23,7 @@ router.post(
   }
 );
 router.get("/get", auth.authenticateToken, (req, res, next) => {
-  var query = "select *from category order by name";
+  var query = "select *from construction order by name";
   connection.query(query, (err, results) => {
     if (!err) {
       return res.status(200).json(results);
@@ -38,18 +38,16 @@ router.patch(
   auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
-    let product = req.body;
-    var query = "update category set name=? where id=?";
-    connection.query(query, [product.name, product.id], (err, results) => {
+    let material = req.body;
+    var query = "update construction set name=? where id=?";
+    connection.query(query, [material.name, material.id], (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
           return res
             .status(404)
-            .json({ message: "Id da categoria não encontrado." });
+            .json({ message: "Id da obra não encontrada." });
         }
-        return res
-          .status(200)
-          .json({ message: "Categoria atualizada com sucesso" });
+        return res.status(200).json({ message: "Obra atualizada com sucesso" });
       } else {
         return res.status(500).json(err);
       }

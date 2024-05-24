@@ -4,27 +4,27 @@ const router = express.Router();
 var auth = require("../services/authentication");
 
 router.get("/details", auth.authenticateToken, (req, res, next) => {
-  var categoryCount;
-  var productCount;
-  var billCount;
-  var query = "select count(id) as categoryCount from category";
+  var constructionCount;
+  var materialCount;
+  //var billCount;
+  var query = "select count(id) as constructionCount from construction";
   connection.query(query, (err, results) => {
     if (!err) {
-      categoryCount = results[0].categoryCount;
+      constructionCount = results[0].constructionCount;
     } else {
       return res.status(500).json(err);
     }
   });
-  var query = "select count(id) as productCount from product";
+  var query = "select count(id) as materialCount from material";
   connection.query(query, (err, results) => {
     if (!err) {
-      productCount = results[0].productCount;
+      materialCount = results[0].materialCount;
     } else {
       return res.status(500).json(err);
     }
   });
 
-  var query = "select count(id) as billCount from bill";
+  /*var query = "select count(id) as billCount from bill";
   connection.query(query, (err, results) => {
     if (!err) {
       billCount = results[0].billCount;
@@ -37,7 +37,7 @@ router.get("/details", auth.authenticateToken, (req, res, next) => {
     } else {
       return res.status(500).json(err);
     }
-  });
+  });*/
 });
 
 module.exports = router;

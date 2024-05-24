@@ -5,12 +5,18 @@ var auth = require("../services/authentication");
 var checkRole = require("../services/checkRole");
 
 router.post("/add", auth.authenticateToken, checkRole.checkRole, (req, res) => {
-  let product = req.body;
+  let material = req.body;
   var query =
-    "insert into product (name,categoryId,description,price,status) values(?,?,?,?, 'true')";
+    "insert into material (name,constructionId,description,supplier,quantity) values(?,?,?,?,?)";
   connection.query(
     query,
-    [product.name, product.categoryId, product.description, product.price],
+    [
+      material.name,
+      material.constructionId,
+      material.description,
+      material.supplier,
+      material.quantity,
+    ],
     (err, results) => {
       if (!err) {
         return res
@@ -25,7 +31,7 @@ router.post("/add", auth.authenticateToken, checkRole.checkRole, (req, res) => {
 
 router.get("/get", auth.authenticateToken, (req, res, next) => {
   var query =
-    "select p.id,p.name,p.description,p.price,p.status,c.id as categoryId, c.name as categoryName from product as p INNER JOIN category as c where p.categoryId = c.id";
+    "select p.id,p.name,p.description,p.supplier,p.quantity,c.id as constructionId, c.name as constructionName from material as p INNER JOIN construction as c where p.constructionId = c.id";
   connection.query(query, (err, results) => {
     if (!err) {
       return res.status(200).json(results);
@@ -35,21 +41,25 @@ router.get("/get", auth.authenticateToken, (req, res, next) => {
   });
 });
 
-router.get("getByCategory/:id", auth.authenticateToken, (req, res, next) => {
-  const id = req.params.id;
-  var query =
-    "select id,name from product where categoryId = ? and status= 'true'";
-  connection.query(query, [id], (err, results) => {
-    if (!err) {
-      return res.status(200).json(results);
-    } else {
-      return res.status(500).json(err);
-    }
-  });
-});
+router.get(
+  "getByConstruction/:id",
+  auth.authenticateToken,
+  (req, res, next) => {
+    const id = req.params.id;
+    var query =
+      "select id,name from material where constructionId = ? and status= 'true'";
+    connection.query(query, [id], (err, results) => {
+      if (!err) {
+        return res.status(200).json(results);
+      } else {
+        return res.status(500).json(err);
+      }
+    });
+  }
+);
 router.get("./getById/:id", auth.authenticateToken, (req, res, next) => {
   const id = req.params.id;
-  var query = "select id,name,description,price from product where id = ?";
+  var query = "select id,name,description,supplier from material where id = ?";
   connection.query(query, [id], (err, results) => {
     if (!err) {
       return res.status(200).json(results[0]);
@@ -64,28 +74,28 @@ router.patch(
   auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
-    let product = req.body;
+    let material = req.body;
     var query =
-      "update product set name=?, categoryId=?, description=?, prince=? where id=?";
+      "update material set name=?, constructionId=?, description=?, supplier=? where id=?";
     connection.query(
       query,
       [
-        product.name,
-        product.categoryId,
-        product.description,
-        product.price,
-        product.id,
+        material.name,
+        material.constructionId,
+        material.description,
+        material.supplier,
+        material.id,
       ],
       (err, results) => {
         if (!err) {
           if (results.affectedRows == 0) {
             return res
               .status(404)
-              .json({ message: "Id do produto não encontrado." });
+              .json({ message: "Id do material não encontrado." });
           }
           return res
             .status(200)
-            .json({ message: "Produto atualizado com sucesso!" });
+            .json({ message: "Material atualizado com sucesso!" });
         } else {
           return res.status(500).json(err);
         }
@@ -100,17 +110,17 @@ router.delete(
   checkRole.checkRole,
   (req, res, next) => {
     const id = req.params.id;
-    var query = "delete from product where id=?";
+    var query = "delete from material where id=?";
     connection.query(query, [id], (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
           return res
             .status(404)
-            .json({ message: "Id do produto não encontrado." });
+            .json({ message: "Id do material não encontrado." });
         }
         return res
           .status(200)
-          .json({ message: "Produto deletado com sucesso!" });
+          .json({ message: "Material deletado com sucesso!" });
       } else {
         return res.status(500).json(err);
       }
@@ -119,22 +129,22 @@ router.delete(
 );
 
 router.patch(
-  "/updateStatus",
+  "/updateQuantity",
   auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     let user = req.body;
-    var query = "update product set status =? where id=?";
+    var query = "update material set quantity =? where id=?";
     connection.query(query, [user.status, user.id], (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
           return res
             .status(404)
-            .json({ message: "Id do produto não encontrado." });
+            .json({ message: "Id do material não encontrado." });
         }
         return res
           .status(200)
-          .json({ message: "Status do produto atualizado com sucesso!" });
+          .json({ message: "Quantidade do material atualizado com sucesso!" });
       } else {
         return res.status(500).json(err);
       }
