@@ -1,0 +1,56 @@
+<mat-toolbar>
+  <mat-toolbar-row fxLayout="row">
+    <span class="title-center">{{dialogData.action}} Material</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="materialForm">
+  <div fxFlex fxLayout="column">
+    <div fxLayout="row wrap">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="materialForm.controls.name.touched && materialForm.controls.name.invalid">
+          <span *ngIf="materialForm.controls.name.errors.required">Este campo é obrigatório.</span>
+          <span *ngIf="materialForm.controls.name.errors.pattern">Este campo é inválido.</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" required>
+        <mat-error *ngIf="materialForm.controls.price.touched && materialForm.controls.price.invalid">
+          <span *ngIf="materialForm.controls.price.errors.required">Este campo é obrigatório.</span>
+          <span *ngIf="materialForm.controls.price.errors.pattern">Este campo é inválido.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+          <mat-option *ngFor="let category of categorys" [value]="category.id">{{category.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" required>
+        <mat-error *ngIf="materialForm.controls.description.touched && materialForm.controls.description.invalid">
+          <span *ngIf="materialForm.controls.description.errors.required">Este campo é obrigatório.</span>
+          <span *ngIf="materialForm.controls.description.errors.pattern">Este campo é inválido.</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button type="submit" (click)="handleSubmit()"
+  [disabled]="!(materialForm.valid && materialForm.dirty)">{{action}}</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

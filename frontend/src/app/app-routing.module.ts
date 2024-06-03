@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FullComponent } from './layouts/full/full.component';
 import { RouteGuardService } from './services/route-guard.service';
-import { EstoqueComponent } from './estoque/estoque.component';
-import { ObrasComponent } from './obras/obras.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,15 +33,6 @@ const routes: Routes = [
             expectedRole:['admin','user']
           }
       },
-      {
-      path: 'estoque',
-      component: EstoqueComponent,
-
-      },
-      {
-        path: 'obras',
-        component: ObrasComponent
-      }
 
     ]
   },

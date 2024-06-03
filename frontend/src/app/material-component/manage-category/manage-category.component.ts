@@ -16,7 +16,7 @@ import { CategoryComponent } from '../dialog/category/category.component';
 export class ManageCategoryComponent implements OnInit {
   displayedColumns:string[] = ['name','edit'];
   dataSource:any;
-  responseMessage: any;
+  responseMessage:any;
   constructor(private categoryService:CategoryService,
     private ngxService:NgxUiLoaderService,
     private dialog:MatDialog,
@@ -25,7 +25,7 @@ export class ManageCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.ngxService.start();
-  this.tableData();
+    this.tableData();
   }
 
   tableData(){
@@ -58,7 +58,7 @@ export class ManageCategoryComponent implements OnInit {
     dialogConfig.width = "850px";
     const dialogRef = this.dialog.open(CategoryComponent,dialogConfig);
     this.router.events.subscribe(()=>{
-      dialogRef.close()
+      dialogRef.close();
     });
     const sub = dialogRef.componentInstance.onAddCategory.subscribe(
       (response)=>{
@@ -76,7 +76,7 @@ export class ManageCategoryComponent implements OnInit {
     dialogConfig.width = "850px";
     const dialogRef = this.dialog.open(CategoryComponent,dialogConfig);
     this.router.events.subscribe(()=>{
-      dialogRef.close()
+      dialogRef.close();
     });
     const sub = dialogRef.componentInstance.onEditCategory.subscribe(
       (response)=>{

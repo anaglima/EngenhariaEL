@@ -14,6 +14,9 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { CategoryComponent } from './dialog/category/category.component';
+import { ManageMaterialComponent } from './manage-material/manage-material.component';
+import { MaterialComponent } from './dialog/material/material.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { CategoryComponent } from './dialog/category/category.component';
     ConfirmationComponent,
     ChangePasswordComponent,
     ManageCategoryComponent,
-    CategoryComponent
+    CategoryComponent,
+    ManageMaterialComponent,
+    MaterialComponent,
+    ManageUserComponent
 
   ]
 })
