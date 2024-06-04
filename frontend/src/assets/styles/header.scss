@@ -15,8 +15,9 @@ mat-toolbar{
         padding: 0px 15px;
         background-color: #888787;
     }
-    .navbar-header {
+    .navbar-header, .icone{
         text-align: center;
+        margin: 10px;
         .navbar-brand {
             display: flex;
             line-height: 18px;
@@ -24,11 +25,9 @@ mat-toolbar{
             .dark-logo {
                 display: none;
             }
-            b {
-               margin-right: 5px;
-            }
         }
     }
+
 
     .profile-pic{
         width: 40px;
@@ -56,4 +55,5 @@ mat-toolbar{
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+
 

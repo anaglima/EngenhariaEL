@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FullComponent } from './layouts/full/full.component';
 import { RouteGuardService } from './services/route-guard.service';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
           data:{
             expectedRole:['admin','user']
           }
-      }
+      },
+
     ]
   },
   { path: '**', component: HomeComponent }
