@@ -13,7 +13,7 @@ import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
-import { CategoryComponent } from './dialog/category/category.component';
+import { ConstructionComponent } from './dialog/construction/construction.component';
 import { ManageMaterialComponent } from './manage-material/manage-material.component';
 import { MaterialComponent } from './dialog/material/material.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
@@ -36,7 +36,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
     ConfirmationComponent,
     ChangePasswordComponent,
     ManageCategoryComponent,
-    CategoryComponent,
+    ConstructionComponent,
     ManageMaterialComponent,
     MaterialComponent,
     ManageUserComponent

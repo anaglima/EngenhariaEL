@@ -3,10 +3,10 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { CategoryService } from 'src/app/services/category.service';
+import { ConstructionService } from 'src/app/services/construction.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-import { CategoryComponent } from '../dialog/category/category.component';
+import { ConstructionComponent } from '../dialog/construction/construction.component';
 
 @Component({
   selector: 'app-manage-category',
@@ -17,7 +17,7 @@ export class ManageCategoryComponent implements OnInit {
   displayedColumns:string[] = ['name','edit'];
   dataSource:any;
   responseMessage:any;
-  constructor(private categoryService:CategoryService,
+  constructor(private constructionService:ConstructionService,
     private ngxService:NgxUiLoaderService,
     private dialog:MatDialog,
     private snackbarService:SnackbarService,
@@ -29,7 +29,7 @@ export class ManageCategoryComponent implements OnInit {
   }
 
   tableData(){
-    this.categoryService.getCategory().subscribe((response:any)=>{
+    this.constructionService.getConstruction().subscribe((response:any)=>{
       this.ngxService.stop();
       this.dataSource = new MatTableDataSource(response);
     },(error:any)=>{
@@ -56,11 +56,11 @@ export class ManageCategoryComponent implements OnInit {
       action: 'Add'
     }
     dialogConfig.width = "850px";
-    const dialogRef = this.dialog.open(CategoryComponent,dialogConfig);
+    const dialogRef = this.dialog.open(ConstructionComponent,dialogConfig);
     this.router.events.subscribe(()=>{
       dialogRef.close();
     });
-    const sub = dialogRef.componentInstance.onAddCategory.subscribe(
+    const sub = dialogRef.componentInstance.onAddConstruction.subscribe(
       (response)=>{
         this.tableData();
       }
@@ -74,11 +74,11 @@ export class ManageCategoryComponent implements OnInit {
       data:values
     }
     dialogConfig.width = "850px";
-    const dialogRef = this.dialog.open(CategoryComponent,dialogConfig);
+    const dialogRef = this.dialog.open(ConstructionComponent,dialogConfig);
     this.router.events.subscribe(()=>{
       dialogRef.close();
     });
-    const sub = dialogRef.componentInstance.onEditCategory.subscribe(
+    const sub = dialogRef.componentInstance.onEditConstruction.subscribe(
       (response)=>{
         this.tableData();
       }

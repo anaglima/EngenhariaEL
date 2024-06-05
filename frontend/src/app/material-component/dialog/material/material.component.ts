@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { CategoryService } from 'src/app/services/category.service';
+import { ConstructionService } from 'src/app/services/construction.service';
 import { MaterialService } from 'src/app/services/material.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
@@ -19,21 +19,22 @@ export class MaterialComponent implements OnInit {
   dialogAction:any ="Add";
   action:any = "Add";
   responseMessage:any;
-  categorys:any = [];
+  constructions:any = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData:any,
 private formBuilder:FormBuilder,
 private materialService:MaterialService,
 public dialogRef:MatDialogRef<MaterialComponent>,
-private categoryService:CategoryService,
+private constructionService:ConstructionService,
 private snackbarService:SnackbarService) { }
 
   ngOnInit(): void {
     this.materialForm = this.formBuilder.group({
       name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
-      categoryId:[null,Validators.required],
-      price:[null,Validators.required],
-      description:[null,Validators.required]
+      constructionId:[null,Validators.required],
+      local:[null,Validators.required],
+      status:[null,Validators.required],
+      reponsible:[null,Validators.required]
     })
 
     if(this.dialogData.action === 'Edit'){
@@ -41,12 +42,12 @@ private snackbarService:SnackbarService) { }
       this.action = "Update";
       this.materialForm.patchValue(this.dialogData.data);
     }
-    this.getCategorys()
+    this.getConstructions()
   }
 
-  getCategorys(){
-    this.categoryService.getCategory().subscribe((response)=>{
-      this.categorys = response;
+  getConstructions(){
+    this.constructionService.getConstruction().subscribe((response)=>{
+      this.constructions = response;
     },(error:any)=>{
       if(error.error?.message){
         this.responseMessage = error.error?.message;
@@ -71,9 +72,10 @@ private snackbarService:SnackbarService) { }
     var formData = this.materialForm.value;
     var data = {
       name:formData.name,
-      categoryId:formData.categoryId,
-      price:formData.price,
-      description:formData.description,
+      constructionId:formData.constructionId,
+      local:formData.local,
+      status:formData.status,
+      responsible:formData.responsible,
     }
     this.materialService.add(data).subscribe((response:any)=>{
       this.dialogRef.close();
@@ -95,9 +97,10 @@ private snackbarService:SnackbarService) { }
     var data = {
       id: this.dialogData.data.id,
       name:formData.name,
-      categoryId:formData.categoryId,
-      price:formData.price,
-      description:formData.description,
+      constructionId:formData.constructionId,
+      local:formData.local,
+      status:formData.status,
+      responsible:formData.responsible,
 
     }
     this.materialService.update(data).subscribe((response:any)=>{

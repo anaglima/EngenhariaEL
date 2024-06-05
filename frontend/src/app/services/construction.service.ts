@@ -5,26 +5,26 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class ConstructionService {
   url = environment.apiUrl;
 
   constructor(private httpClient:HttpClient) { }
 
   add(data:any){
     return this.httpClient.post(this.url+
-      "/category/add/",data,{
+      "/construction/add/",data,{
         headers: new HttpHeaders().set('Contet-Type',"application/json")
       })
   }
 
   update(data:any){
     return this.httpClient.patch(this.url+
-      "/category/update/",data,{
+      "/construction/update/",data,{
         headers: new HttpHeaders().set('Contet-Type',"application/json")
       })
   }
 
-  getCategory(){
-    return this.httpClient.get(this.url+"/category/get/");
+  getConstruction(){
+    return this.httpClient.get(this.url+"/construction/get/");
   }
 }

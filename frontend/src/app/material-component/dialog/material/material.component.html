@@ -28,9 +28,9 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Category</mat-label>
-        <mat-select formControlName="categoryId">
-          <mat-option *ngFor="let category of categorys" [value]="category.id">{{category.name}}</mat-option>
+        <mat-label>Obras</mat-label>
+        <mat-select formControlName="constructionId">
+          <mat-option *ngFor="let construction of constructions" [value]="construction.id">{{construction.name}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>

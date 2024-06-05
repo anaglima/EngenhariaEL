@@ -4,14 +4,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-dialog-content class="mat-typography">
-  <form [formGroup]="categoryForm">
+  <form [formGroup]="constructionForm">
     <div fxFlex fxLayout="column">
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill" fxFlex>
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" required>
-          <mat-error *ngIf="categoryForm.controls.name.touched && categoryForm.controls.name.invalid">
-            <span *ngIf="categoryForm.controls.name.errors.required">Este campo é obrigatório</span>
+          <mat-error *ngIf="constructionForm.controls.name.touched && constructionForm.controls.name.invalid">
+            <span *ngIf="constructionForm.controls.name.errors.required">Este campo é obrigatório</span>
           </mat-error>
         </mat-form-field>
     </div>
@@ -20,6 +20,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="center">
   <button mat-raised-button type="submit" (click)="handleSubmit()"
-  [disabled]="!(categoryForm.valid && categoryForm.dirty)">Cadastrar</button>
+  [disabled]="!(constructionForm.valid && constructionForm.dirty)">Cadastrar</button>
   <button mat-raised-button mat-dialog-close>Cancelar</button>
 </mat-dialog-actions>
