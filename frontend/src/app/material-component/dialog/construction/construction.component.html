@@ -1,8 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row fxLayout="row">
-    <span class="title-center">Casastrar Obra</span>
+    <span class="title-center">Cadastrar Obra</span>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="constructionForm">
     <div fxFlex fxLayout="column">
@@ -15,43 +16,44 @@
             <span *ngIf="constructionForm.controls.name.errors.pattern">Este campo é inválido.</span>
           </mat-error>
         </mat-form-field>
-    </div>
+      </div>
 
-    <div fxLayout="row wrap">
-      <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Local</mat-label>
-        <input matInput formControlName="local" required>
-        <mat-error *ngIf="constructionForm.controls.local.touched && constructionForm.controls.local.invalid">
-          <span *ngIf="constructionForm.controls.local.errors.required">Este campo é obrigatório</span>
-          <span *ngIf="constructionForm.controls.local.errors.pattern">Este campo é inválido.</span>
-        </mat-error>
-      </mat-form-field>
-  </div>
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Local</mat-label>
+          <input matInput formControlName="local" required>
+          <mat-error *ngIf="constructionForm.controls.local.touched && constructionForm.controls.local.invalid">
+            <span *ngIf="constructionForm.controls.local.errors.required">Este campo é obrigatório</span>
+            <span *ngIf="constructionForm.controls.local.errors.pattern">Este campo é inválido.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-  <div fxLayout="row wrap">
-    <mat-form-field appearance="fill" fxFlex>
-      <mat-label>Status</mat-label>
-      <input matInput formControlName="status" required>
-      <mat-error *ngIf="constructionForm.controls.status.touched && constructionForm.controls.status.invalid">
-        <span *ngIf="constructionForm.controls.status.errors.required">Este campo é obrigatório</span>
-        <span *ngIf="constructionForm.controls.status.errors.pattern">Este campo é inválido.</span>
-      </mat-error>
-    </mat-form-field>
-</div>
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Status</mat-label>
+          <input matInput formControlName="status" required>
+          <mat-error *ngIf="constructionForm.controls.status.touched && constructionForm.controls.status.invalid">
+            <span *ngIf="constructionForm.controls.status.errors.required">Este campo é obrigatório</span>
+            <span *ngIf="constructionForm.controls.status.errors.pattern">Este campo é inválido.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-<div fxLayout="row wrap">
-  <mat-form-field appearance="fill" fxFlex>
-    <mat-label>Responsável</mat-label>
-    <input matInput formControlName="responsible" required>
-    <mat-error *ngIf="constructionForm.controls.responsible.touched && constructionForm.controls.responsible.invalid">
-      <span *ngIf="constructionForm.controls.responsible.errors.required">Este campo é obrigatório</span>
-      <span *ngIf="constructionForm.controls.responsible.errors.pattern">Este campo é inválido.</span>
-    </mat-error>
-  </mat-form-field>
-</div>
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Responsável</mat-label>
+          <input matInput formControlName="responsible" required>
+          <mat-error *ngIf="constructionForm.controls.responsible.touched && constructionForm.controls.responsible.invalid">
+            <span *ngIf="constructionForm.controls.responsible.errors.required">Este campo é obrigatório</span>
+            <span *ngIf="constructionForm.controls.responsible.errors.pattern">Este campo é inválido.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
   </form>
 </mat-dialog-content>
+
 <mat-dialog-actions align="center">
   <button mat-raised-button type="submit" (click)="handleSubmit()"
   [disabled]="!(constructionForm.valid && constructionForm.dirty)">Cadastrar</button>

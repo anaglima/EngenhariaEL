@@ -13,14 +13,14 @@ export class ConstructionService {
   add(data:any){
     return this.httpClient.post(this.url+
       "/construction/add/",data,{
-        headers: new HttpHeaders().set('Contet-Type',"application/json")
+        headers: new HttpHeaders().set('Content-Type',"application/json")
       })
   }
 
   update(data:any){
     return this.httpClient.patch(this.url+
       "/construction/update/",data,{
-        headers: new HttpHeaders().set('Contet-Type',"application/json")
+        headers: new HttpHeaders().set('Content-Type',"application/json")
       })
   }
 
