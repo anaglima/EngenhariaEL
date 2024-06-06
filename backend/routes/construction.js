@@ -10,16 +10,26 @@ router.post(
   checkRole.checkRole,
   (req, res, next) => {
     let construction = req.body;
-    query = "insert into construction(name) values(?)";
-    connection.query(query, [construction.name], (err, results) => {
-      if (!err) {
-        return res
-          .status(200)
-          .json({ message: "Obra adicionada com sucesso!" });
-      } else {
-        return res.status(500).json(err);
+    query =
+      "insert into construction(name, local, status, responsible) values(?, ?, ?, ?)";
+    connection.query(
+      query,
+      [
+        construction.name,
+        construction.local,
+        construction.status,
+        construction.responsible,
+      ],
+      (err, results) => {
+        if (!err) {
+          return res
+            .status(200)
+            .json({ message: "Obra adicionada com sucesso!" });
+        } else {
+          return res.status(500).json(err);
+        }
       }
-    });
+    );
   }
 );
 router.get("/get", auth.authenticateToken, (req, res, next) => {

@@ -28,10 +28,9 @@ export class ConstructionComponent implements OnInit {
   ngOnInit(): void {
     this.constructionForm = this.formBuilder.group({
       name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
-      constructionId:[null,Validators.required],
       local:[null,Validators.required],
       status:[null,Validators.required],
-      reponsible:[null,Validators.required]
+      owner:[null,Validators.required]
     });
     if(this.dialogData.action === 'Edit'){
       this.dialogAction = "Edit";
@@ -56,7 +55,7 @@ export class ConstructionComponent implements OnInit {
       constructionId:formData.constructionId,
       local:formData.local,
       status:formData.status,
-      responsible:formData.responsible
+      responsible:formData.owner
 
     }
     this.constructionService.add(data).subscribe((response:any)=>{
@@ -84,7 +83,7 @@ export class ConstructionComponent implements OnInit {
       constructionId:formData.constructionId,
       local:formData.local,
       status:formData.status,
-      responsible:formData.responsible
+      responsible:formData.owner
     }
     this.constructionService.update(data).subscribe((response:any)=>{
       this.dialogRef.close();
