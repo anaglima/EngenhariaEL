@@ -24,6 +24,8 @@ create table construction(
     primary key(id)
 );
 
+insert into construction(name,local,status,responsible) values('Escola', 'Taquaritinga', 'Iniciada', 'Antonio');
+
 create table material(
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,

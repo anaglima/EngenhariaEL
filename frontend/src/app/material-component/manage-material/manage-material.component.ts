@@ -15,7 +15,7 @@ import { ConfirmationComponent } from '../dialog/confirmation/confirmation.compo
   styleUrls: ['./manage-material.component.scss']
 })
 export class ManageMaterialComponent implements OnInit {
-  displayedColumns:string[] = ['name','categoryName','description','price','edit'];
+  displayedColumns:string[] = ['name','constructionName','local','status','responsible','edit'];
   dataSource:any;
   responseMessage:any;
 

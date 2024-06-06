@@ -9,9 +9,10 @@ export interface Menu{
 
 const MENUITEMS =[
   {state:'dashboard', name:'Início', icon:'home', role:''},
-  {state:'category', name:'Obras', icon:'construction', role:''},
+  {state:'construction', name:'Obras', icon:'construction', role:''},
   {state:'material', name:'Estoque', icon:'inventory_2', role:''},
-  {state:'user', name:'Perfil', icon:'people', role:'admin'}
+  {state:'user', name:'Perfil', icon:'people', role:'admin'},
+  {state:'logout', name:'Sair', icon:'exit_to_app', role:''}
 ];
 
 @Injectable()

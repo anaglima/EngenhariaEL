@@ -12,7 +12,7 @@ import { MaterialModule } from '../shared/material-module';
 import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill-products.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
-import { ManageCategoryComponent } from './manage-category/manage-category.component';
+import { ManageConstructionComponent } from './manage-construction/manage-construction.component';
 import { ConstructionComponent } from './dialog/construction/construction.component';
 import { ManageMaterialComponent } from './manage-material/manage-material.component';
 import { MaterialComponent } from './dialog/material/material.component';
@@ -35,7 +35,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
     ViewBillProductsComponent,
     ConfirmationComponent,
     ChangePasswordComponent,
-    ManageCategoryComponent,
+    ManageConstructionComponent,
     ConstructionComponent,
     ManageMaterialComponent,
     MaterialComponent,

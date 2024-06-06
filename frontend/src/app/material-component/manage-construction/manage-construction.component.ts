@@ -9,11 +9,11 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 import { ConstructionComponent } from '../dialog/construction/construction.component';
 
 @Component({
-  selector: 'app-manage-category',
-  templateUrl: './manage-category.component.html',
-  styleUrls: ['./manage-category.component.scss']
+  selector: 'app-manage-construction',
+  templateUrl: './manage-construction.component.html',
+  styleUrls: ['./manage-construction.component.scss']
 })
-export class ManageCategoryComponent implements OnInit {
+export class ManageConstructionComponent implements OnInit {
   displayedColumns:string[] = ['name','edit'];
   dataSource:any;
   responseMessage:any;
