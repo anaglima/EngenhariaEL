@@ -161,7 +161,7 @@ router.post("/changePassword", auth.authenticateToken, (req, res) => {
       if (results.length <= 0) {
         return res.status(400).json({ message: "Senha antiga incorreta." });
       } else if (results[0].password == user.oldPassword) {
-        query = "update user set password=? where email";
+        query = "update user set password=? where email=?";
         connection.query(query, [user.newPassword, email], (err, results) => {
           if (!err) {
             return res
