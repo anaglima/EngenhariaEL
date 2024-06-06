@@ -5,7 +5,7 @@
 <hr>
 <mat-card>
   <mat-form-field appearance="fill">
-    <mat-label>Filter</mat-label>
+    <mat-label>Filtro</mat-label>
     <input matInput (keyup)="applyFilter($event)" #input>
   </mat-form-field>
 </mat-card>
@@ -13,12 +13,27 @@
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <th mat-header-cell *matHeaderCellDef> Nome</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="local">
+      <th mat-header-cell *matHeaderCellDef> Local</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="responsible">
+      <th mat-header-cell *matHeaderCellDef> Responsável</th>
       <td mat-cell *matCellDef="let element">{{element.name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <th mat-header-cell *matHeaderCellDef> Editar</th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <button mat-icon-button matTooltip="Edit" (click)="handleEditAction(element)">
           <mat-icon>edit</mat-icon>

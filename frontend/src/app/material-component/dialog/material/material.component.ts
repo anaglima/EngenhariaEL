@@ -32,9 +32,10 @@ private snackbarService:SnackbarService) { }
     this.materialForm = this.formBuilder.group({
       name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
       constructionId:[null,Validators.required],
-      local:[null,Validators.required],
-      status:[null,Validators.required],
-      reponsible:[null,Validators.required]
+      materialId:[null,Validators.required],
+      description:[null,Validators.required],
+      supplier:[null,Validators.required],
+      quantity:[null,Validators.required]
     })
 
     if(this.dialogData.action === 'Edit'){
@@ -73,9 +74,10 @@ private snackbarService:SnackbarService) { }
     var data = {
       name:formData.name,
       constructionId:formData.constructionId,
-      local:formData.local,
-      status:formData.status,
-      responsible:formData.responsible,
+      materialId:formData.materialId,
+      description:formData.description,
+      supplier:formData.supplier,
+      quantity:formData.quantity
     }
     this.materialService.add(data).subscribe((response:any)=>{
       this.dialogRef.close();
@@ -98,9 +100,10 @@ private snackbarService:SnackbarService) { }
       id: this.dialogData.data.id,
       name:formData.name,
       constructionId:formData.constructionId,
-      local:formData.local,
-      status:formData.status,
-      responsible:formData.responsible,
+      materialId:formData.materialId,
+      description:formData.description,
+      supplier:formData.supplier,
+      quantity:formData.quantity
 
     }
     this.materialService.update(data).subscribe((response:any)=>{

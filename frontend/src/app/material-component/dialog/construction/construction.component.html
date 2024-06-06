@@ -1,6 +1,6 @@
 <mat-toolbar>
   <mat-toolbar-row fxLayout="row">
-    <span class="title-center">{{dialogData.action}} Obras</span>
+    <span class="title-center">Casastrar Obra</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-dialog-content class="mat-typography">
@@ -8,13 +8,43 @@
     <div fxFlex fxLayout="column">
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Name</mat-label>
+          <mat-label>Tipo da Obra</mat-label>
           <input matInput formControlName="name" required>
           <mat-error *ngIf="constructionForm.controls.name.touched && constructionForm.controls.name.invalid">
             <span *ngIf="constructionForm.controls.name.errors.required">Este campo é obrigatório</span>
           </mat-error>
         </mat-form-field>
     </div>
+
+    <div fxLayout="row wrap">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Local</mat-label>
+        <input matInput formControlName="local" required>
+        <mat-error *ngIf="constructionForm.controls.local.touched && constructionForm.controls.local.invalid">
+          <span *ngIf="constructionForm.controls.local.errors.required">Este campo é obrigatório</span>
+        </mat-error>
+      </mat-form-field>
+  </div>
+
+  <div fxLayout="row wrap">
+    <mat-form-field appearance="fill" fxFlex>
+      <mat-label>Status</mat-label>
+      <input matInput formControlName="status" required>
+      <mat-error *ngIf="constructionForm.controls.status.touched && constructionForm.controls.status.invalid">
+        <span *ngIf="constructionForm.controls.status.errors.required">Este campo é obrigatório</span>
+      </mat-error>
+    </mat-form-field>
+</div>
+
+<div fxLayout="row wrap">
+  <mat-form-field appearance="fill" fxFlex>
+    <mat-label>Responsável</mat-label>
+    <input matInput formControlName="responsible" required>
+    <mat-error *ngIf="constructionForm.controls.responsible.touched && constructionForm.controls.responsible.invalid">
+      <span *ngIf="constructionForm.controls.responsible.errors.required">Este campo é obrigatório</span>
+    </mat-error>
+  </mat-form-field>
+</div>
     </div>
   </form>
 </mat-dialog-content>
