@@ -32,7 +32,6 @@ private snackbarService:SnackbarService) { }
     this.materialForm = this.formBuilder.group({
       name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
       constructionId:[null,Validators.required],
-      materialId:[null,Validators.required],
       description:[null,Validators.required],
       supplier:[null,Validators.required],
       quantity:[null,Validators.required]
