@@ -55,7 +55,7 @@ export class ConstructionComponent implements OnInit {
       constructionId:formData.constructionId,
       local:formData.local,
       status:formData.status,
-      responsible:formData.owner
+      owner:formData.owner
 
     }
     this.constructionService.add(data).subscribe((response:any)=>{
@@ -83,7 +83,7 @@ export class ConstructionComponent implements OnInit {
       constructionId:formData.constructionId,
       local:formData.local,
       status:formData.status,
-      responsible:formData.owner
+      owner:formData.owner
     }
     this.constructionService.update(data).subscribe((response:any)=>{
       this.dialogRef.close();
